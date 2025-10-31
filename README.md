@@ -41,7 +41,7 @@ En cambio, mantener HAM10000 y aplicar **estrategias de mitigación de desbalanc
 | Exploración y limpieza | EDA, balance, análisis demográfico | ok |
 | Preparación de imágenes | Resize 224×224, normalización, división train/val/test | ok |
 | Data augmentation | Rotación ±15°, zoom 0.9-1.1, flip horizontal | ok |
-| Class weights | Cálculo automático con `sklearn.utils.class_weight` | soon |
+| Class weights | Cálculo automático con `sklearn.utils.class_weight` | ok |
 | Fine-tuning | Entrenamiento con LR bajo, descongelar capas superiores | soon |
 | Evaluación | ROC-AUC, PR-AUC, matriz de confusión, ajuste de umbral | soon |
 | XAI | Grad-CAM e interpretación de activaciones | soon |
