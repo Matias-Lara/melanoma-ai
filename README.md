@@ -3,6 +3,17 @@
 Proyecto de **clasificación de imágenes dermatológicas** para detectar *melanoma vs no melanoma* usando el dataset **DermMel** (balanceado) y el modelo **EfficientNetV2-S** preentrenado en *ImageNet*.  
 El enfoque utiliza *fine-tuning* con data augmentation y técnicas **XAI (Explainable AI)** mediante Grad-CAM para interpretar visualmente las predicciones del modelo.
 
+## Modelos Pre-entrenados
+
+Los modelos generados durante el entrenamiento están disponibles en Google Drive:
+
+**[Descargar Modelos](https://drive.google.com/drive/folders/1bRGqCDRvz_jmBiH_UfcSPDOXESPMtaPW?usp=sharing)**
+
+Incluye:
+- `best_model_stage1.keras` - Modelo después de la primera etapa de fine-tuning
+- `best_model_stage2.keras` - Modelo después del fine-tuning completo
+- `final_melanoma_model.keras` - Modelo final optimizado
+
 ## Plan de fine-tuning con EfficientNetV2-S
 
 **Objetivo:** adaptar un modelo preentrenado en ImageNet (EfficientNetV2-S) para clasificar *melanoma vs no melanoma* en DermMel.
@@ -54,20 +65,20 @@ A diferencia de HAM10000 (11% melanoma, 89% no melanoma), DermMel ofrece:
 
 | Etapa | Descripción | Estado |
 |-------|--------------|--------|
-| Selección del modelo | EfficientNetV2-S (preentrenado en ImageNet) | ✅ |
-| Descarga del dataset | DermMel (balanceado) desde Kaggle | ✅ |
-| Exploración y limpieza | EDA, visualización de ejemplos, verificación de balance | ✅ |
-| Preparación de imágenes | Resize 224×224, normalización ImageNet | ✅ |
-| Data augmentation | Rotación ±15°, zoom 0.9-1.1, flip horizontal, brightness | ✅ |
-| Fine-tuning | Stage 1: cabeza, Stage 2: descongelar parcial del backbone | ✅ |
-| Evaluación | ROC-AUC, PR-AUC, matriz de confusión, métricas clínicas | ✅ |
-| XAI | Grad-CAM para TP/FN/FP/TN con interpretación clínica | ✅ |
-| Documentación | README, notebook completo y visualizaciones | ✅ |
+| Selección del modelo | EfficientNetV2-S (preentrenado en ImageNet) | Completado |
+| Descarga del dataset | DermMel (balanceado) desde Kaggle | Completado |
+| Exploración y limpieza | EDA, visualización de ejemplos, verificación de balance | Completado |
+| Preparación de imágenes | Resize 224×224, normalización ImageNet | Completado |
+| Data augmentation | Rotación ±15°, zoom 0.9-1.1, flip horizontal, brightness | Completado |
+| Fine-tuning | Stage 1: cabeza, Stage 2: descongelar parcial del backbone | Completado |
+| Evaluación | ROC-AUC, PR-AUC, matriz de confusión, métricas clínicas | Completado |
+| XAI | Grad-CAM para TP/FN/FP/TN con interpretación clínica | Completado |
+| Documentación | README, notebook completo y visualizaciones | Completado |
 
 ---
 
 <details>
-<summary><b>📊 Etapa de Evaluación (Click para expandir)</b></summary>
+<summary><b>Etapa de Evaluación (Click para expandir)</b></summary>
 
 ### Métricas Implementadas
 
@@ -140,7 +151,7 @@ A diferencia de HAM10000 (11% melanoma, 89% no melanoma), DermMel ofrece:
 </details>
 
 <details>
-<summary><b>🔍 Explainable AI (XAI) - Grad-CAM (Click para expandir)</b></summary>
+<summary><b>Explainable AI (XAI) - Grad-CAM (Click para expandir)</b></summary>
 
 ### ¿Por qué XAI en Diagnóstico Médico?
 
@@ -158,8 +169,8 @@ A diferencia de HAM10000 (11% melanoma, 89% no melanoma), DermMel ofrece:
 - Overlay sobre imagen original para interpretación visual
 
 **Colores en Heatmaps**:
-- 🔴 **Rojo/Amarillo**: Influencia POSITIVA (características de melanoma)
-- 🔵 **Azul/Frío**: Sin influencia o influencia negativa
+- **Rojo/Amarillo**: Influencia POSITIVA (características de melanoma)
+- **Azul/Frío**: Sin influencia o influencia negativa
 
 ### Casos Analizados
 
@@ -188,10 +199,10 @@ Se generaron visualizaciones para 4 categorías:
 ### Criterios de Validación Clínica
 
 El modelo es confiable si:
-1. ✅ Heatmaps en TP coinciden con criterios ABCDE de melanoma
-2. ✅ FN tienen explicación médica (lesiones tempranas, atípicas)
-3. ✅ FP no son por artefactos técnicos (pelos, burbujas, marcadores)
-4. ✅ Modelo NO se enfoca en regiones irrelevantes consistentemente
+1. Heatmaps en TP coinciden con criterios ABCDE de melanoma
+2. FN tienen explicación médica (lesiones tempranas, atípicas)
+3. FP no son por artefactos técnicos (pelos, burbujas, marcadores)
+4. Modelo NO se enfoca en regiones irrelevantes consistentemente
 
 ### Patrones Médicamente Relevantes
 
