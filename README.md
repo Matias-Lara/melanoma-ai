@@ -1,3 +1,9 @@
+## Presentación del proyecto (Video)
+
+- Enlace: [Ver presentación en video](https://1drv.ms/v/c/934aa7c3661d566f/EXK2V6Ke6YNBgUvnNE4CbagBlq_10AavKzK1oaMD7GXqig?e=JpU3ty)
+
+---
+
 ## Melanoma Classification with XAI
 
 Proyecto de **clasificación de imágenes dermatológicas** para detectar *melanoma vs no melanoma* usando el dataset **DermMel** (balanceado) y el modelo **EfficientNetV2-S** preentrenado en *ImageNet*.  
